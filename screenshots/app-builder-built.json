@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VOLTA — аренда и продажа EcoFlow и CTOLITY",
+      "hasCanvas": false,
+      "bodyTextLen": 2300,
+      "bodyTextHash": "ba0055552ed02aa29ff24043d59fb7a21815012b704abc7a5a4b536368fd2f84",
+      "bodyTextPrefix": "VOLTA Каталог Аренда Контакты Заявка +7 495 120-40-80 МОСКВА · E",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VOLTA — аренда и продажа EcoFlow и CTOLITY",
+      "hasCanvas": false,
+      "bodyTextLen": 2252,
+      "bodyTextHash": "079279dd112e520e85815db9240769046ee71fa13dd93ab8a20e57d177f81fa6",
+      "bodyTextPrefix": "VOLTA МОСКВА · ECOFLOW · CTOLITY Станции, которые держат дом, пл",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

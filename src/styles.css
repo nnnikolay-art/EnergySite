@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-background: #f3f1ec;
+  --color-foreground: #141512;
+  --color-card: #faf9f6;
+  --color-card-foreground: #141512;
+  --color-popover: #faf9f6;
+  --color-popover-foreground: #141512;
+  --color-primary: #1c332e;
+  --color-primary-foreground: #f3f1ec;
+  --color-secondary: #e7e2d6;
+  --color-secondary-foreground: #141512;
+  --color-muted: #e7e2d6;
+  --color-muted-foreground: #6a6e67;
+  --color-accent: #dfe8e3;
+  --color-accent-foreground: #1c332e;
+  --color-destructive: #8f2d2d;
+  --color-destructive-foreground: #f3f1ec;
+  --color-border: #d6d0c3;
+  --color-input: #d6d0c3;
+  --color-ring: #1c332e;
+  --color-ink: #0c0e0c;
+  --color-ink-foreground: #f3f1ec;
+  --color-paper: #f3f1ec;
+
+  --aspect-photo: 4 / 3;
+  --aspect-hero: 16 / 10;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
+
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

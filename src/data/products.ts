@@ -1,0 +1,546 @@
+export type Brand = "ecoflow" | "ctolity";
+export type SizeClass = "compact" | "mid" | "pro";
+
+export type Spec = {
+  label: string;
+  value: string;
+};
+
+export type RuntimeExample = {
+  device: string;
+  watts: number;
+};
+
+export type Product = {
+  slug: string;
+  brand: Brand;
+  name: string;
+  series: string;
+  tagline: string;
+  description: string;
+  image: string;
+  size: SizeClass;
+  capacityWh: number;
+  outputW: number;
+  surgeW: number;
+  xBoostW?: number;
+  weightKg: number;
+  salePrice: number;
+  rentDay: number;
+  inStock: boolean;
+  rentAvailable: boolean;
+  bestFor: string[];
+  highlights: string[];
+  specs: Spec[];
+  runtimes: RuntimeExample[];
+};
+
+export const BRAND_LABEL: Record<Brand, string> = {
+  ecoflow: "EcoFlow",
+  ctolity: "CTOLITY",
+};
+
+export const SIZE_LABEL: Record<SizeClass, string> = {
+  compact: "Компакт",
+  mid: "Средний класс",
+  pro: "Дом и объект",
+};
+
+const campFridge: RuntimeExample = { device: "Автохолодильник", watts: 60 };
+const laptop: RuntimeExample = { device: "Ноутбук", watts: 60 };
+const router: RuntimeExample = { device: "Wi-Fi роутер", watts: 10 };
+const tv: RuntimeExample = { device: "Телевизор", watts: 100 };
+const fridge: RuntimeExample = { device: "Холодильник", watts: 120 };
+const kettle: RuntimeExample = { device: "Чайник", watts: 900 };
+const heater: RuntimeExample = { device: "Обогреватель", watts: 1500 };
+const ac: RuntimeExample = { device: "Кондиционер", watts: 900 };
+const cpap: RuntimeExample = { device: "CPAP", watts: 40 };
+const projector: RuntimeExample = { device: "Проектор", watts: 200 };
+
+export const products: Product[] = [
+  {
+    slug: "ecoflow-river-3",
+    brand: "ecoflow",
+    name: "EcoFlow RIVER 3",
+    series: "RIVER",
+    tagline: "Карманная станция для поездок и съёмок",
+    description:
+      "Самая лёгкая модель линейки RIVER 3. Хватает на заряд ноутбука, камеры и роутера, помещается в рюкзак. LiFePO4-ячейки и зарядка от розетки примерно за час.",
+    image: "/products/river-3.jpg",
+    size: "compact",
+    capacityWh: 245,
+    outputW: 300,
+    surgeW: 600,
+    xBoostW: 600,
+    weightKg: 3.55,
+    salePrice: 32900,
+    rentDay: 990,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["путешествия", "съёмка", "офис"],
+    highlights: ["3,55 кг", "заряд ~60 мин", "X-Boost до 600 Вт"],
+    specs: [
+      { label: "Ёмкость", value: "245 Вт·ч" },
+      { label: "Номинальная мощность", value: "300 Вт" },
+      { label: "X-Boost", value: "до 600 Вт" },
+      { label: "Пиковая мощность", value: "600 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "3000+" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "2 × 220 В" },
+      { label: "USB", value: "USB-A + 2 × USB-C" },
+      { label: "Солнечный ввод", value: "до 110 Вт" },
+      { label: "Заряд от сети", value: "0–100% ≈ 60 мин" },
+      { label: "UPS", value: "< 20 мс" },
+      { label: "Расширение", value: "нет" },
+      { label: "Вес", value: "3,55 кг" },
+      { label: "Габариты", value: "230 × 150 × 150 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, laptop, cpap, campFridge],
+  },
+  {
+    slug: "ecoflow-river-3-plus",
+    brand: "ecoflow",
+    name: "EcoFlow RIVER 3 Plus",
+    series: "RIVER",
+    tagline: "Универсальная станция для кемпинга и квартиры",
+    description:
+      "Основная модель серии: 600 Вт постоянно и до 1200 Вт с X-Boost. Можно расширить допбатарей до 858 Вт·ч. Переключение UPS быстрее 10 мс — подходит как резерв для роутера и NAS.",
+    image: "/products/river-3-plus.jpg",
+    size: "compact",
+    capacityWh: 286,
+    outputW: 600,
+    surgeW: 1200,
+    xBoostW: 1200,
+    weightKg: 4.7,
+    salePrice: 44900,
+    rentDay: 1290,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["кемпинг", "квартира", "CPAP"],
+    highlights: ["600 Вт / 1200 Вт X-Boost", "UPS < 10 мс", "расширение до 858 Вт·ч"],
+    specs: [
+      { label: "Ёмкость", value: "286 Вт·ч" },
+      { label: "Номинальная мощность", value: "600 Вт" },
+      { label: "X-Boost", value: "до 1200 Вт" },
+      { label: "Пиковая мощность", value: "1200 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "3000+" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "3 × 220 В" },
+      { label: "USB", value: "2 × USB-A, USB-C" },
+      { label: "Автомобильный выход", value: "12,6 В / 10 А, 126 Вт" },
+      { label: "Солнечный ввод", value: "до 220 Вт" },
+      { label: "Заряд от сети", value: "0–100% ≈ 60 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "до 858 Вт·ч" },
+      { label: "Вес", value: "4,7 кг" },
+      { label: "Габариты", value: "234 × 232 × 146 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, laptop, campFridge, projector, kettle],
+  },
+  {
+    slug: "ecoflow-river-3-max",
+    brand: "ecoflow",
+    name: "EcoFlow RIVER 3 Max",
+    series: "RIVER",
+    tagline: "Plus со съёмной допбатареей в комплекте",
+    description:
+      "Комплект RIVER 3 Plus и съёмной Smart Extra Battery. 572 Вт·ч без потери портативности: основную станцию можно взять отдельно, батарею оставить в машине или палатке.",
+    image: "/products/river-3-max.jpg",
+    size: "compact",
+    capacityWh: 572,
+    outputW: 600,
+    surgeW: 1200,
+    xBoostW: 1200,
+    weightKg: 7.9,
+    salePrice: 64900,
+    rentDay: 1590,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["кемпинг", "автодом", "выходные"],
+    highlights: ["572 Вт·ч", "съёмная батарея", "X-Boost 1200 Вт"],
+    specs: [
+      { label: "Ёмкость", value: "572 Вт·ч (286 + 286)" },
+      { label: "Номинальная мощность", value: "600 Вт" },
+      { label: "X-Boost", value: "до 1200 Вт" },
+      { label: "Пиковая мощность", value: "1200 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "3000+" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "3 × 220 В" },
+      { label: "USB", value: "2 × USB-A, USB-C" },
+      { label: "Солнечный ввод", value: "до 220 Вт" },
+      { label: "Заряд от сети", value: "0–100% ≈ 90 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "до 858 Вт·ч" },
+      { label: "Вес комплекта", value: "≈ 7,9 кг" },
+      { label: "Комплектация", value: "станция + Extra Battery" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, laptop, campFridge, tv, projector, kettle],
+  },
+  {
+    slug: "ecoflow-delta-3-classic",
+    brand: "ecoflow",
+    name: "EcoFlow DELTA 3 Classic",
+    series: "DELTA 3",
+    tagline: "Киловатт-час и 1800 Вт без лишнего веса",
+    description:
+      "Вход в семейство DELTA 3: 1024 Вт·ч, 1800 Вт на розетках, зарядка чуть меньше часа. Тянет холодильник, электроинструмент и свет на площадке. Расширяется допбатареями до 5 кВт·ч.",
+    image: "/products/delta-3-classic.jpg",
+    size: "mid",
+    capacityWh: 1024,
+    outputW: 1800,
+    surgeW: 3600,
+    xBoostW: 2400,
+    weightKg: 12.1,
+    salePrice: 89900,
+    rentDay: 2490,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дача", "стройка", "резерв дома"],
+    highlights: ["1024 Вт·ч", "1800 Вт", "заряд ≈ 56 мин"],
+    specs: [
+      { label: "Ёмкость", value: "1024 Вт·ч" },
+      { label: "Номинальная мощность", value: "1800 Вт" },
+      { label: "X-Boost", value: "до 2400 Вт" },
+      { label: "Пиковая мощность", value: "3600 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "4000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "до 4 × 220 В" },
+      { label: "USB", value: "USB-A 18 Вт, USB-C 100 Вт + 30 Вт" },
+      { label: "Солнечный ввод", value: "до 500 Вт" },
+      { label: "Заряд от сети", value: "макс. 1500 Вт, 0–100% ≈ 56 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "до 5 кВт·ч" },
+      { label: "Вес", value: "12,1 кг" },
+      { label: "Габариты", value: "398 × 200 × 283 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, laptop, fridge, tv, kettle, heater],
+  },
+  {
+    slug: "ecoflow-delta-3-plus",
+    brand: "ecoflow",
+    name: "EcoFlow DELTA 3 Plus",
+    series: "DELTA 3",
+    tagline: "Тот же киловатт-час, быстрее солнце и серьёзный UPS",
+    description:
+      "Версия Plus добавляет двухпортовый солнечный ввод до 1000 Вт и UPS-режим для NAS и чувствительной техники. В тестах 2026 года — одна из самых сбалансированных станций среднего класса.",
+    image: "/products/delta-3-plus.jpg",
+    size: "mid",
+    capacityWh: 1024,
+    outputW: 1800,
+    surgeW: 3600,
+    xBoostW: 2400,
+    weightKg: 12.5,
+    salePrice: 109900,
+    rentDay: 2790,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дом", "офис", "солнечная зарядка"],
+    highlights: ["солнечный ввод 1000 Вт", "UPS для NAS", "11 выходов"],
+    specs: [
+      { label: "Ёмкость", value: "1024 Вт·ч (≈ 825 Вт·ч полезных)" },
+      { label: "Номинальная мощность", value: "1800 Вт" },
+      { label: "X-Boost", value: "до 2400 Вт" },
+      { label: "Пиковая мощность", value: "3600 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "4000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "4 × 220 В" },
+      { label: "USB", value: "2 × USB-A, 2 × USB-C до 100 Вт" },
+      { label: "Солнечный ввод", value: "до 1000 Вт, 2 порта" },
+      { label: "Заряд от сети", value: "макс. 1500 Вт, 0–100% ≈ 56 мин" },
+      { label: "UPS", value: "< 10 мс, режим NAS / HID" },
+      { label: "Расширение", value: "до 5 кВт·ч" },
+      { label: "Вес", value: "12,5 кг" },
+      { label: "Габариты", value: "398 × 200 × 283 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, laptop, fridge, tv, kettle, heater],
+  },
+  {
+    slug: "ecoflow-delta-3-max",
+    brand: "ecoflow",
+    name: "EcoFlow DELTA 3 Max",
+    series: "DELTA 3",
+    tagline: "Два киловатт-часа для дома и съёмочной площадки",
+    description:
+      "2048 Вт·ч и 2400 Вт непрерывно. Закрывает холодильник, свет и рабочие станции на сутки. Можно нарастить ёмкость до 6 кВт·ч совместимыми батареями.",
+    image: "/products/delta-3-max.jpg",
+    size: "pro",
+    capacityWh: 2048,
+    outputW: 2400,
+    surgeW: 4800,
+    xBoostW: 3400,
+    weightKg: 20.3,
+    salePrice: 169900,
+    rentDay: 3990,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дом", "мероприятие", "автодом"],
+    highlights: ["2048 Вт·ч", "2400 Вт", "расширение до 6 кВт·ч"],
+    specs: [
+      { label: "Ёмкость", value: "2048 Вт·ч" },
+      { label: "Номинальная мощность", value: "2400 Вт" },
+      { label: "X-Boost", value: "до 3400 Вт" },
+      { label: "Пиковая мощность", value: "4800 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "4000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "4 × 220 В" },
+      { label: "USB", value: "USB-C до 100 Вт" },
+      { label: "Солнечный ввод", value: "до 1000 Вт" },
+      { label: "Заряд от сети", value: "макс. 1800 Вт, 0–100% ≈ 65–70 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "до 6 кВт·ч" },
+      { label: "Вес", value: "20,3 кг" },
+      { label: "Габариты", value: "494 × 242 × 305 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, fridge, tv, projector, kettle, heater, ac],
+  },
+  {
+    slug: "ecoflow-delta-3-ultra-plus",
+    brand: "ecoflow",
+    name: "EcoFlow DELTA 3 Ultra Plus",
+    series: "DELTA 3",
+    tagline: "Домашний резерв на основные приборы",
+    description:
+      "3072 Вт·ч и 3600 Вт — уровень ввода квартиры. Держит холодильник, свет, роутер и котёл на ночь отключения. Солнечный ввод до 1600 Вт, расширение около 7 кВт·ч.",
+    image: "/products/delta-3-ultra.jpg",
+    size: "pro",
+    capacityWh: 3072,
+    outputW: 3600,
+    surgeW: 7200,
+    xBoostW: 4700,
+    weightKg: 33.7,
+    salePrice: 249900,
+    rentDay: 5490,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дом", "офис", "резерв"],
+    highlights: ["3072 Вт·ч", "3600 Вт", "солнечный ввод 1600 Вт"],
+    specs: [
+      { label: "Ёмкость", value: "3072 Вт·ч" },
+      { label: "Номинальная мощность", value: "3600 Вт" },
+      { label: "X-Boost", value: "до 4700 Вт" },
+      { label: "Пиковая мощность", value: "7200 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "4000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "несколько 220 В, до 3600 Вт суммарно" },
+      { label: "USB", value: "USB-C до 140 Вт" },
+      { label: "Солнечный ввод", value: "до 1600 Вт" },
+      { label: "Заряд от сети", value: "0–80% ≈ 75 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "≈ 7 кВт·ч" },
+      { label: "Вес", value: "33,7 кг" },
+      { label: "Габариты", value: "613 × 328 × 395 мм" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, fridge, tv, kettle, heater, ac],
+  },
+  {
+    slug: "ecoflow-delta-pro-3",
+    brand: "ecoflow",
+    name: "EcoFlow DELTA Pro 3",
+    series: "DELTA Pro",
+    tagline: "Объектная станция на колёсах",
+    description:
+      "4096 Вт·ч, 4000 Вт постоянно и до 6000 Вт с X-Boost. Колёса и ручка — станцию можно катить по площадке. Масштабируется до 48 кВт·ч: дом, съёмка, малый объект.",
+    image: "/products/delta-pro-3.jpg",
+    size: "pro",
+    capacityWh: 4096,
+    outputW: 4000,
+    surgeW: 8000,
+    xBoostW: 6000,
+    weightKg: 51,
+    salePrice: 349900,
+    rentDay: 7490,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дом", "площадка", "бизнес"],
+    highlights: ["4,1 кВт·ч", "4000 Вт", "расширение до 48 кВт·ч"],
+    specs: [
+      { label: "Ёмкость", value: "4096 Вт·ч" },
+      { label: "Номинальная мощность", value: "4000 Вт" },
+      { label: "X-Boost", value: "до 6000 Вт" },
+      { label: "Пиковая мощность", value: "8000 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "4000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "10–12 портов" },
+      { label: "USB", value: "USB-C до 100 Вт" },
+      { label: "Солнечный ввод", value: "до 2600 Вт" },
+      { label: "Заряд от сети", value: "макс. 1800 Вт, ≈ 70 мин" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Расширение", value: "до 48 кВт·ч" },
+      { label: "Вес", value: "51 кг, колёса" },
+      { label: "Гарантия", value: "5 лет" },
+    ],
+    runtimes: [router, fridge, tv, kettle, heater, ac],
+  },
+  {
+    slug: "ctolity-ap400",
+    brand: "ctolity",
+    name: "CTOLITY AP400",
+    series: "AP",
+    tagline: "Компакт 345 Вт·ч с беспроводной зарядкой",
+    description:
+      "Недорогая LFP-станция на каждый день: телефоны, ноутбук, мини-холодильник, CPAP. Есть беспроводная площадка, UPS быстрее 10 мс и заряд от сети, прикуривателя и панели.",
+    image: "/products/ap400.jpg",
+    size: "compact",
+    capacityWh: 346,
+    outputW: 500,
+    surgeW: 650,
+    weightKg: 5.03,
+    salePrice: 19900,
+    rentDay: 790,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["поездки", "CPAP", "дача"],
+    highlights: ["345 Вт·ч / 500 Вт", "беспроводная зарядка", "UPS < 10 мс"],
+    specs: [
+      { label: "Ёмкость", value: "345,6 Вт·ч" },
+      { label: "Номинальная мощность", value: "500 Вт" },
+      { label: "Пиковая мощность", value: "650 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "> 3000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "2 × 220 В" },
+      { label: "USB-A", value: "3 × QC 3.0" },
+      { label: "USB-C", value: "1 × PD 22,5 Вт" },
+      { label: "DC", value: "DC5521 12 В / 10 А" },
+      { label: "Беспроводная зарядка", value: "да" },
+      { label: "Заряд от сети", value: "150 Вт, ≈ 2,5 ч" },
+      { label: "Солнечный ввод", value: "12–26 В, 150 Вт" },
+      { label: "Автозаряд", value: "12 В / 8 А, 100 Вт" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Вес", value: "5,03 кг" },
+      { label: "Габариты", value: "250 × 177 × 177 мм" },
+      { label: "Гарантия", value: "5 лет (+1 при покупке у бренда)" },
+    ],
+    runtimes: [router, laptop, cpap, campFridge],
+  },
+  {
+    slug: "ctolity-xp1000",
+    brand: "ctolity",
+    name: "CTOLITY XP1000",
+    series: "XP",
+    tagline: "Киловатт-час и 1800 Вт без переплаты за бренд",
+    description:
+      "1024 Вт·ч на ячейках BYD LiFePO4, 1800 Вт на розетках и заряд от сети киловаттом. До 11 устройств сразу. Тихая, пылезащищённая, с автопереключением UPS.",
+    image: "/products/xp1000.jpg",
+    size: "mid",
+    capacityWh: 1024,
+    outputW: 1800,
+    surgeW: 2600,
+    weightKg: 14,
+    salePrice: 44900,
+    rentDay: 1990,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дача", "стройка", "резерв"],
+    highlights: ["1024 Вт·ч", "1800 Вт", "заряд 1000 Вт"],
+    specs: [
+      { label: "Ёмкость", value: "1024 Вт·ч" },
+      { label: "Номинальная мощность", value: "1800 Вт" },
+      { label: "Пиковая мощность", value: "2600 Вт" },
+      { label: "Химия батареи", value: "LFP BYD (LiFePO4)" },
+      { label: "Циклы до 80%", value: "> 3000" },
+      { label: "BMS", value: "16 уровней защиты" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "AC-выходы", value: "100–240 В, авто 50/60 Гц" },
+      { label: "USB-C", value: "100 Вт + 22,5 Вт" },
+      { label: "USB-A", value: "4 × до 18 Вт" },
+      { label: "DC", value: "прикуриватель 12 В / 24 В до 200 Вт" },
+      { label: "Заряд от сети", value: "1000 Вт, ≈ 1,2 ч" },
+      { label: "Солнечный ввод", value: "12–48 В, 500 Вт" },
+      { label: "Автозаряд", value: "12–24 В, 100 Вт" },
+      { label: "UPS", value: "< 20 мс" },
+      { label: "Устройства сразу", value: "до 11" },
+      { label: "Вес", value: "14 кг" },
+      { label: "Габариты", value: "398 × 228 × 256 мм" },
+      { label: "Гарантия", value: "до 6 лет при регистрации" },
+    ],
+    runtimes: [router, laptop, fridge, tv, kettle, heater],
+  },
+  {
+    slug: "ctolity-ap2000",
+    brand: "ctolity",
+    name: "CTOLITY AP2000",
+    series: "AP",
+    tagline: "Два киловатт-часа и 2400 Вт на площадку",
+    description:
+      "2048 Вт·ч и 2400 Вт — запас для дома, мероприятия или автодома без цены флагмана. Солнечный ввод до 600 Вт, сеть 1000 Вт, UPS быстрее 10 мс.",
+    image: "/products/ap2000.jpg",
+    size: "pro",
+    capacityWh: 2048,
+    outputW: 2400,
+    surgeW: 2600,
+    weightKg: 23,
+    salePrice: 69900,
+    rentDay: 2990,
+    inStock: true,
+    rentAvailable: true,
+    bestFor: ["дом", "мероприятие", "автодом"],
+    highlights: ["2048 Вт·ч", "2400 Вт", "солнечный ввод 600 Вт"],
+    specs: [
+      { label: "Ёмкость", value: "2048 Вт·ч" },
+      { label: "Номинальная мощность", value: "2400 Вт (110 В) / 2600 Вт (220 В)" },
+      { label: "Пиковая мощность", value: "2600 Вт" },
+      { label: "Химия батареи", value: "LFP (LiFePO4)" },
+      { label: "Циклы до 80%", value: "> 3000" },
+      { label: "Инвертор", value: "Чистая синусоида" },
+      { label: "USB-C", value: "100 Вт + 22,5 Вт" },
+      { label: "USB-A", value: "4 порта" },
+      { label: "DC", value: "2 × DC5525 12 В / 18 А, до 200 Вт" },
+      { label: "Прикуриватель", value: "12 В / 18 А, 200 Вт" },
+      { label: "Заряд от сети", value: "1000 Вт, ≈ 2,2 ч" },
+      { label: "Солнечный ввод", value: "12–48 В, 600 Вт" },
+      { label: "Автозаряд", value: "12 В / 8 А, 100 Вт" },
+      { label: "UPS", value: "< 10 мс" },
+      { label: "Вес", value: "23 кг" },
+      { label: "Габариты", value: "483 × 301 × 301 мм" },
+      { label: "Гарантия", value: "до 6 лет при регистрации" },
+    ],
+    runtimes: [router, fridge, tv, projector, kettle, heater],
+  },
+];
+
+export function getProduct(slug: string) {
+  return products.find((item) => item.slug === slug);
+}
+
+export function relatedProducts(product: Product, limit = 3) {
+  return products
+    .filter((item) => item.slug !== product.slug)
+    .sort((a, b) => {
+      const brandBoost = (item: Product) => (item.brand === product.brand ? 0 : 1);
+      const sizeBoost = (item: Product) => (item.size === product.size ? 0 : 1);
+      const cap = Math.abs(a.capacityWh - product.capacityWh) - Math.abs(b.capacityWh - product.capacityWh);
+      return brandBoost(a) - brandBoost(b) || sizeBoost(a) - sizeBoost(b) || cap;
+    })
+    .slice(0, limit);
+}
+
+export const COMPANY = {
+  name: "VOLTA",
+  legal: "ООО «Вольта»",
+  tagline: "Аренда и продажа портативных электростанций",
+  phone: "+7 495 120-40-80",
+  phoneHref: "tel:+74951204080",
+  email: "hello@volta.energy",
+  telegram: "https://t.me/volta_energy",
+  telegramLabel: "@volta_energy",
+  hours: "Ежедневно 10:00–21:00",
+  address: "Москва, Большая Татарская ул., 35с1",
+  metro: "м. Новокузнецкая, 7 минут пешком",
+  delivery: "Самовывоз в день обращения. Доставка по Москве — 790 ₽, МО — по расчёту.",
+};
